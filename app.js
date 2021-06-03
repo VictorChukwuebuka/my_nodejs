@@ -126,3 +126,11 @@ fs.appendFile('example.txt','. Appending data to example.txt file',(err)=>{
     else
         console.log('successfully appended data to the file');
 });
+ 
+//Delete a file
+fs.unlink('example.txt', (err)=>{
+    if(err)
+    console.log(err);
+    else
+    console.log('File successfully delete');
+});

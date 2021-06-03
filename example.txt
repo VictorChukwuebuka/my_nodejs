@@ -1,1 +1,0 @@
-An example of how to create files. Appending data to example.txt file
