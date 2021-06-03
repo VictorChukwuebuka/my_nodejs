@@ -13,3 +13,15 @@ fs.mkdir('my node js folder', (err)=>{
         
 });
 
+//Deleting a folder with a file inside it
+fs.unlink('./my node js folder/nodejs.txt',(err)=>{
+    if (err)
+    console.log(err);
+    else
+    fs.rmdir('my node js folder', (err)=>{
+        if (err)
+        console.log(err);
+        else
+        console.log('file and folder successfully deleted');
+    });
+});
