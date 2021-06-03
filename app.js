@@ -91,3 +91,38 @@ rl.on('close', ()=>{
 
 
 //File system module
+//Create a file
+const fs = require('fs');
+fs.writeFile('tutorial.txt', 'An example of how to create files',(err)=>{
+    if (err)
+    console.log(err);
+    else{
+        console.log('File successfully created');
+
+// Read a file
+        fs.readFile('tutorial.txt','utf8',(err,file)=>{
+            if(err)
+            console.log(err);
+            else
+            console.log(file);
+        });
+    }
+});
+
+
+//Rename a file
+fs.rename('tutorial.txt', 'example.txt',(err)=>{
+    if (err)
+    console.log(err);
+    else
+    console.log('File successfully renamed');
+});
+
+
+//Append a file(updating a file)
+fs.appendFile('example.txt','. Appending data to example.txt file',(err)=>{
+    if(err)
+        console.log(err);
+    else
+        console.log('successfully appended data to the file');
+});
