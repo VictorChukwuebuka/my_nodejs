@@ -1,17 +1,16 @@
-//pipe chaining:create zip file:(shorter way of creating a new file and 
-//transfering the content of the old file to new one)
-const fs = require('fs');
-const zlib = require('zlib');
-const gzip = zlib.createGzip();
-const readStream = fs.createReadStream('./example.txt','utf8');
-const writeStream = fs.createWriteStream('./exapmle2.txt.gz')
-readStream.pipe(gzip).pipe(writeStream);
+//Creatint http server using http module
+const http = require('http');
+const server = http.createServer((req,res)=>{
+    if (req.url === ('/')){
+        res.write('Hello world from nodejs');
+    res.end();
+    }
+    else{
+        res.write('Using some other domain');
+        res.end();
+    }
+    
+    
+});
 
-
-//Create unzip
-const fs = require('fs');
-const zlib = require('zlib');
-const gunzip = zlib.createGunzip();
-const readStream = fs.createReadStream('./exapmle2.txt.gz');
-const writeStream = fs.createWriteStream('uncompressed.txt')
-readStream.pipe(gunzip).pipe(writeStream);
+server.listen('3000');
