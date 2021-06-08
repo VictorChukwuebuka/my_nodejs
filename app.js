@@ -1,8 +1,10 @@
-//Express get request
+//Serving static files using express eg htmls, css etc
 const express = require('express');
+const path = require('path');
 const app = express();
+app.use('/public',express.static(path.join(__dirname,'static')));
 app.get('/',(req,res)=>{
-res.send('Hello World from nodejs');
+res.sendFile(path.join(__dirname,'static','index.html'));
 
 });
 app.get('/example',(req,res)=>{
